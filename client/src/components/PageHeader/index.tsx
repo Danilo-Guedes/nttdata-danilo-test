@@ -3,7 +3,7 @@ import styles from "./PageHeader.module.scss";
 function PageHeader() {
   return (
     <div className={styles.header}>
-      <span className={styles.text}>Teste Danilo NTT DATA</span>
+      <span className={styles.text}>Header</span>
     </div>
   );
 }

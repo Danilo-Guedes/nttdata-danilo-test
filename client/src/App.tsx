@@ -10,10 +10,6 @@ function App() {
       path: "/",
       element: <Home />,
     },
-    {
-      path: "/about",
-      element: <div>About</div>,
-    },
   ]);
 
   const queryClient = new QueryClient();

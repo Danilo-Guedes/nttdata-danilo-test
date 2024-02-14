@@ -1,5 +1,5 @@
 import { Card } from "@ui5/webcomponents-react";
-import { MoviesCard } from "../../../types/movies";
+import { MoviesCard } from "../../../../types/movies";
 
 import styles from "./MovieCard.module.scss";
 import { Link } from "react-router-dom";

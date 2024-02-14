@@ -1,4 +1,4 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -15,5 +15,12 @@ export class AppController {
     console.log({ search });
 
     return this.appService.getMovies(search);
+  }
+
+  @Get('/movies/:movieId')
+  getMovieDetails(@Param('movieId') movieId: string): Promise<string> {
+    console.log({ movieId });
+
+    return this.appService.getMovieDetails(movieId);
   }
 }

@@ -8,7 +8,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 import SearchSvg from "../../svgs/online-search.svg";
 
 import styles from "./Home.module.scss";
-import MoviesList from "../components/MoviesList";
+import MoviesList from "./components/MoviesList";
 import Skeleton from "react-loading-skeleton";
 
 function Home() {

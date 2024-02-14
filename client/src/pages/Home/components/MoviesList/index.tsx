@@ -1,4 +1,4 @@
-import { MoviesCard } from "../../../types/movies";
+import { MoviesCard } from "../../../../types/movies";
 import MovieCard from "../MovieCard";
 
 import styles from './MoviesList.module.scss'

@@ -19,7 +19,6 @@ export class AppService {
     try {
       const response = await axios.get(apiUrl);
 
-
       const data = response.data;
 
       console.log('Data:', data);
@@ -30,5 +29,23 @@ export class AppService {
       console.error('Error fetching movies:', error);
       return 'Error fetching movies';
     }
+  }
+
+  async getMovieDetails(movieId: string): Promise<string> {
+    console.log({ movieId });
+    const secretKey = process.env.OMDB_API_KEY;
+    const apiUrl = `http://www.omdbapi.com/?apikey=${secretKey}&i=${movieId}`;
+
+    console.log({
+      apiUrl,
+    });
+
+    return axios.get(apiUrl).then((response) => {
+      const data = response.data;
+
+      console.log('Data:', data);
+      // Process the movie details data as needed
+      return data;
+    });
   }
 }

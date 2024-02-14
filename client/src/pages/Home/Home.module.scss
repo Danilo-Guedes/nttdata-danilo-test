@@ -3,18 +3,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: lime;
+  margin: 2rem;
+  max-width: 40rem;
 }
 .titleText {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: black;
   text-align: center;
+  margin-bottom: 1rem
 }
 .subtitleText {
   font-size: 1rem;
   color: black;
   text-align: center;
+  
 }
 .searchContainer {
   display: flex;
@@ -22,10 +25,11 @@
   gap: 2rem;
   justify-content: center;
   align-items: center;
-  background-color: lightblue;
-  padding: 1rem;
-  @media (min-width: 600px) {
+  width: 100%;
+  padding: 2rem;
+  @media (min-width: 992px) {
     flex-direction: row;
+    padding: 0
   }
 }
 
@@ -33,21 +37,41 @@
   width: 100%;
   border-radius: 5px;
   border: 1px solid black;
-  min-width: 400px;
-  @media (max-width: 600px) {
+  @media (min-width: 992px) {
     width: 100%;
+    max-width: 500px;
+
   }
 }
 .searchBtn {
-    min-width: 12rem;
+  width: 100%;
   text-align: center;
-  @media (max-width: 600px) {
-    width: 100%;
+  @media (min-width: 992px) {
+    width: 200px;
+
   }
 }
 .resetBtn {
-    min-width: 12rem;
-  @media (max-width: 600px) {
-    width: 100%;
+  width: 100%;
+  text-align: center;
+  @media (min-width: 992px) {
+    width: 200px;
+  }
+}
+.svgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+  margin-top: 3rem;
+}
+.loadingContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 5rem;
+  @media screen and (max-width: 992px) {
+    grid-template-columns: 1fr;
   }
 }

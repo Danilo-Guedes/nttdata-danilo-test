@@ -1,9 +1,25 @@
+import { LinkedinIcon, GithubIcon } from "lucide-react";
+
 import styles from "./PageFooter.module.scss";
+
 function PageFooter() {
   return (
-    <div className={styles.container}>
-      <span className={styles.text}>PageFooter</span>
-    </div>
+    <footer className={styles.container}>
+      <a
+        href="https://www.linkedin.com/in/danilo-guedes-dev"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <LinkedinIcon />
+      </a>
+      <a
+        href="https://www.github.com/danilo-guedes"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <GithubIcon />
+      </a>
+    </footer>
   );
 }
 

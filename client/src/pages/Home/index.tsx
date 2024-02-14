@@ -1,17 +1,21 @@
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import PageLayout from "../../components/PageLayout";
 import { getMoviesApi } from "../../api/movies";
-
 import { Text, Input, Button } from "@ui5/webcomponents-react";
+import "react-loading-skeleton/dist/skeleton.css";
+
+import SearchSvg from "../../svgs/online-search.svg";
 
 import styles from "./Home.module.scss";
+import MoviesList from "../components/MoviesList";
+import Skeleton from "react-loading-skeleton";
 
 function Home() {
   const [searchText, setSearchText] = useState("");
   const [searchedText, setSearchedText] = useState("");
 
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError, isSuccess } = useQuery({
     queryKey: ["movies-list", searchedText],
     queryFn: async () => {
       setSearchText("");
@@ -20,25 +24,30 @@ function Home() {
     enabled: searchedText.length > 0,
     refetchOnWindowFocus: false,
   });
-  console.log({
-    data,
-    isLoading,
-    isError,
-  });
+
+  const queryClient = useQueryClient();
 
   const handleSearchButtonClick = () => {
     setSearchedText(searchText.trim());
   };
 
+  const handleResetButtonClick = async () => {
+    await queryClient.invalidateQueries({
+      queryKey: ["movies-list"],
+    });
+    setSearchText("");
+    setSearchedText("");
+  };
+
   return (
     <PageLayout>
       <div className={styles.titleContainer}>
-        <Text className={styles.titleText}>Title</Text>
+        <h1 className={styles.titleText}>Pesquise Agora!</h1>
         <Text className={styles.subtitleText}>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde et
-          repellat dolorum qui. Quo praesentium, non voluptatum ipsa temporibus
-          excepturi reprehenderit suscipit aliquid cum nostrum sapiente
-          voluptates. Quidem, quisquam. Repudiandae.
+          Faça uma pesquisa por texto do filme desejado, posteriromente será
+          exibido uma lista de filmes ou series com uma imagem de capa oficial,
+          data de lançamento e ao clicar no card exibido você será levado a tela
+          de detalhes do filme/serie.
         </Text>
       </div>
       <div className={styles.searchContainer}>
@@ -53,20 +62,38 @@ function Home() {
           icon="search"
           className={styles.searchBtn}
           onClick={() => {
-            if (searchText.trim()?.length === 0) return
+            if (searchText.trim()?.length === 0) return;
             handleSearchButtonClick();
           }}
         >
           Search
         </Button>
-        <Button design="Default" className={styles.resetBtn}>
+        <Button
+          design="Default"
+          className={styles.resetBtn}
+          onClick={handleResetButtonClick} // Reset the query
+        >
           Reset
         </Button>
       </div>
       <div>
-        {isLoading && <p>Loading...</p>}
+        {isLoading && (
+          <div className={styles.loadingContainer}>
+            {Array(10).fill(<Skeleton height={400} width={600} />)}
+          </div>
+        )}
         {isError && <p>Error</p>}
-        {data && <pre>{JSON.stringify(data, null, 4)}</pre>}
+        {isSuccess && (
+          <>
+            {data?.Error && <p>{data?.Error}</p>}
+            {data?.Search?.length > 0 && <MoviesList movies={data.Search} />}
+          </>
+        )}
+        {!data && !isLoading && (
+          <div className={styles.svgContainer}>
+            <img alt="search a movie" src={SearchSvg} width={400} />
+          </div>
+        )}
       </div>
     </PageLayout>
   );

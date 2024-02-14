@@ -18,11 +18,13 @@ export class AppService {
 
     try {
       const response = await axios.get(apiUrl);
-      const movies = response.data;
 
-      console.log('Movies:', movies);
+
+      const data = response.data;
+
+      console.log('Data:', data);
       // Process the movies data as needed
-      return movies;
+      return data;
     } catch (error) {
       // Handle error
       console.error('Error fetching movies:', error);

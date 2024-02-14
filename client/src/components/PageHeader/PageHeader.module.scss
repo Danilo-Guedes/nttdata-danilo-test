@@ -1,24 +1,72 @@
 .header {
-    height: 10vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.titleContainer{
+display: flex;
+background-color: orange;
+flex: 1;
+align-items: center;
+justify-content: center;
 }
 .title {
-    color: #0070f2;
+  color: #0070f2;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  @media screen and (min-width: 1024px) {
     font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
+    
+  }
 }
-.menuText{
-    font-size: 1.5rem;
-    color: #0070f2;
-    cursor: pointer;
+.menuContainer {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  background-color: lime;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  @media screen and (min-width: 924px) {
+    flex-direction: row;
+    gap: 2rem;
+    
+  }
 
 }
+.menuText {
+  font-size: 1rem;
+  color: #0070f2;
+  cursor: pointer;
+  @media screen and (min-width: 1024px) {
+    font-size: 1.2rem;
+    
+  }
+}
+.link{
+    &:hover {
+        border-bottom: 2px solid #0070f2;
+      }
+}
 .icon {
-    font-size: 2rem;
-    color: #0070f2;
-    cursor: pointer;
+  font-size: 2rem;
+  color: #0070f2;
+  cursor: pointer;
+}
+.socialMedia {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: lightcoral;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    
+  }
 }

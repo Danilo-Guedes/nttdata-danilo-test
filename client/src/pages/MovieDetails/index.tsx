@@ -30,19 +30,46 @@ function MovieDetailsPage() {
           <div className={styles.outerContainer}>
             <div className={styles.leftContainer}>
               <span className={styles.title}>{movie.Title}</span>
-              <span className={styles.normalText}>{movie.Plot}</span>
-              <span className={styles.normalText}>{movie.Type}</span>
-              <span className={styles.normalText}>{movie.Actors}</span>
-              <span className={styles.normalText}>{movie.Awards}</span>
               <span className={styles.normalText}>
+                <b className={styles.stats}>Enredo: </b>
+                {movie.Plot}
+              </span>
+              <span className={styles.normalText}>
+                <b className={styles.stats}>Tipo: </b>
+                {movie.Type}
+              </span>
+              <span className={styles.normalText}>
+                <b className={styles.stats}>Atores: </b>
+                {movie.Actors}
+              </span>
+              <span className={styles.normalText}>
+                <b className={styles.stats}>Premios: </b>
+                {movie.Awards}
+              </span>
+              <span className={styles.normalText}>
+                <b className={styles.stats}>Avaliações: </b>
                 {movie.Ratings.map((rat) => `${rat.Source} - ${rat.Value}`)}
               </span>
-              <span>{movie.BoxOffice}</span>
-              <span>{movie.Director}</span>
-              <span>{movie.Genre}</span>
-              <span>{movie.Metascore}</span>
-              <span>{movie.Production}</span>
-              <span>{movie.Released}</span>
+              <span className={styles.normalText}>
+                <b className={styles.stats}>Arrecadação: </b>
+                {movie.BoxOffice}
+              </span>
+              <span className={styles.normalText}>
+                <b className={styles.stats}>Diretor: </b>
+                {movie.Director}
+              </span>
+              <span className={styles.normalText}>
+                <b className={styles.stats}>Gênero: </b>
+                {movie.Genre}
+              </span>
+              <span className={styles.normalText}>
+                <b className={styles.stats}>MetaScore 0/100: </b>
+                {movie.Metascore}
+              </span>
+              <span className={styles.normalText}>
+                <b className={styles.stats}>Lançamento: </b>
+                {movie.Released}
+              </span>
             </div>
             <div className={styles.rightContainer}>
               <img

@@ -1,13 +1,24 @@
 .header {
     height: 10vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
-.text {
-    color: black;
+.title {
+    color: #0070f2;
     font-size: 2rem;
-    font-weight: semi-bold;
+    font-weight: bold;
     text-align: center;
+}
+.menuText{
+    font-size: 1.5rem;
+    color: #0070f2;
+    cursor: pointer;
+
+}
+.icon {
+    font-size: 2rem;
+    color: #0070f2;
+    cursor: pointer;
 }

@@ -1,0 +1,45 @@
+.outerContainer {
+  background-color: aquamarine;
+  padding: 2rem;
+  display: flex;
+  @media screen and (max-width: 768px) {
+    padding: 0.5rem;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+.leftContainer {
+  background-color: lightcoral;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  @media screen and (max-width: 768px) {
+    padding: 0.5rem;
+  }
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+  .normalText {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+}
+.rightContainer {
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  .poster {
+    width: 450px;
+    height: 600px;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

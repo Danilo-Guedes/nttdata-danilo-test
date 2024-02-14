@@ -10,14 +10,14 @@ function PageFooter() {
         target="_blank"
         rel="noreferrer"
       >
-        <LinkedinIcon />
+        <LinkedinIcon color="#0070f2" />
       </a>
       <a
         href="https://www.github.com/danilo-guedes"
         target="_blank"
         rel="noreferrer"
       >
-        <GithubIcon />
+        <GithubIcon color="#0070f2"/>
       </a>
     </footer>
   );

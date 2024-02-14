@@ -3,7 +3,7 @@ import { ThemeProvider } from "@ui5/webcomponents-react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import Home from "./pages/Home";
-import MovieDetails from "./pages/MovieDetails";
+import MovieDetailsPage from "./pages/MovieDetails";
 
 function App() {
   const router = createBrowserRouter([
@@ -13,7 +13,7 @@ function App() {
     },
     {
       path: '/movie/:movieId',
-      element: <MovieDetails />,
+      element: <MovieDetailsPage />,
     }
   ]);
 

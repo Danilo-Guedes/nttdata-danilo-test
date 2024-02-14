@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import PageLayout from "../../components/PageLayout";
 import { getMoviesApi } from "../../api/movies";
-import { Text, Input, Button } from "@ui5/webcomponents-react";
+import {  Input, Button } from "@ui5/webcomponents-react";
 import "react-loading-skeleton/dist/skeleton.css";
 
 import SearchSvg from "../../svgs/online-search.svg";
@@ -43,12 +43,12 @@ function Home() {
     <PageLayout>
       <div className={styles.titleContainer}>
         <h1 className={styles.titleText}>Pesquise Agora!</h1>
-        <Text className={styles.subtitleText}>
+        <span className={styles.subtitleText}>
           Faça uma pesquisa por texto do filme desejado, posteriromente será
           exibido uma lista de filmes ou series com uma imagem de capa oficial,
           data de lançamento e ao clicar no card exibido você será levado a tela
           de detalhes do filme/serie.
-        </Text>
+        </span>
       </div>
       <div className={styles.searchContainer}>
         <Input

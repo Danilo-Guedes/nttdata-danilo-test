@@ -10,7 +10,6 @@ import MovieDetailsSkeleton from "./components/MovieDetailsSkeleton";
 function MovieDetailsPage() {
   const { movieId } = useParams();
 
-  console.log({ movieId });
   const {
     data: movie,
     isLoading,

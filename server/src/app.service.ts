@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
+import { GetMoviesDTO } from 'dtos/getMovies.dto';
+import { GetMovieDetailsDTO } from 'dtos/getMoviesDetails.dto';
 
 @Injectable()
 export class AppService {
@@ -7,45 +9,33 @@ export class AppService {
     return 'Hello World new!';
   }
 
-  async getMovies(search: string): Promise<string> {
-    console.log({ search });
+  async getMovies(search: string): Promise<GetMoviesDTO[]> {
     const secretKey = process.env.OMDB_API_KEY;
     const apiUrl = `http://www.omdbapi.com/?apikey=${secretKey}&s=${search}`;
 
-    console.log({
-      apiUrl,
-    });
-
     try {
-      const response = await axios.get(apiUrl);
+      const response = await axios.get<GetMoviesDTO[]>(apiUrl);
 
       const data = response.data;
-
-      console.log('Data:', data);
-      // Process the movies data as needed
       return data;
     } catch (error) {
       // Handle error
       console.error('Error fetching movies:', error);
-      return 'Error fetching movies';
+      throw error;
     }
   }
 
-  async getMovieDetails(movieId: string): Promise<string> {
-    console.log({ movieId });
+  async getMovieDetails(movieId: string): Promise<GetMovieDetailsDTO> {
     const secretKey = process.env.OMDB_API_KEY;
     const apiUrl = `http://www.omdbapi.com/?apikey=${secretKey}&i=${movieId}`;
 
-    console.log({
-      apiUrl,
-    });
-
-    return axios.get(apiUrl).then((response) => {
+    try {
+      const response = await axios.get<GetMovieDetailsDTO>(apiUrl);
       const data = response.data;
-
-      console.log('Data:', data);
-      // Process the movie details data as needed
       return data;
-    });
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
   }
 }

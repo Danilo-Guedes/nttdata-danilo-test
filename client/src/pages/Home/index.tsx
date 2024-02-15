@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import PageLayout from "../../components/PageLayout";
 import { getMoviesApi } from "../../api/movies";
-import { Input, Button } from "@ui5/webcomponents-react";
 import "react-loading-skeleton/dist/skeleton.css";
 
 import SearchSvg from "../../svgs/online-search.svg";
@@ -12,6 +11,7 @@ import CheckList from "../../svgs/checklist.svg";
 import styles from "./Home.module.scss";
 import MoviesList from "./components/MoviesList";
 import MoviesListSkeleton from "./components/MoviesListSkeleton";
+import SearchArea from "./components/SearchArea";
 
 function Home() {
   const [searchText, setSearchText] = useState("");
@@ -43,41 +43,12 @@ function Home() {
 
   return (
     <PageLayout>
-      <div className={styles.titleContainer}>
-        <h1 className={styles.titleText}>Pesquise e descubra...</h1>
-        <span className={styles.subtitleText}>
-          Faça uma pesquisa pelo nome do filme ou serie desejado(a),
-          posteriromente será exibido uma lista de resultados com uma imagem de
-          capa oficial, data de lançamento e ao clicar no card exibido você será
-          levado a tela de detalhes.
-        </span>
-      </div>
-      <div className={styles.searchContainer}>
-        <Input
-          placeholder="Search..."
-          className={styles.searchInput}
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-        />
-        <Button
-          design="Emphasized"
-          icon="search"
-          className={styles.searchBtn}
-          onClick={() => {
-            if (searchText.trim()?.length === 0) return;
-            handleSearchButtonClick();
-          }}
-        >
-          Search
-        </Button>
-        <Button
-          design="Default"
-          className={styles.resetBtn}
-          onClick={handleResetButtonClick} // Reset the query
-        >
-          Reset
-        </Button>
-      </div>
+      <SearchArea
+        searchText={searchText}
+        setSearchText={setSearchText}
+        handleSearchButtonClick={handleSearchButtonClick}
+        handleResetButtonClick={handleResetButtonClick}
+      />
       <div>
         {isLoading && <MoviesListSkeleton />}
         {isError && <p>Error</p>}

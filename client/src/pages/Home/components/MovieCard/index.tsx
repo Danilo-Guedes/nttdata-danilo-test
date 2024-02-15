@@ -16,8 +16,7 @@ function MovieCard({ movie }: MovieCardProps) {
 
       <div className={styles.imgContainer}>
         <img src={movie.Poster} alt={movie.Title}
-        width={300}
-        height={400}
+        className={styles.img}
         />
       </div>
       <div className={styles.dataContainer}>

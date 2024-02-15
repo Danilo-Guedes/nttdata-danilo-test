@@ -5,6 +5,7 @@ import { MovieDetails } from "../../types/movies";
 
 import PageLayout from "../../components/PageLayout";
 import MovieDetailsView from "./components/MovieDetailsView";
+import MovieDetailsSkeleton from "./components/MovieDetailsSkeleton";
 
 function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -20,18 +21,20 @@ function MovieDetailsPage() {
     queryFn: async () => {
       return await getMovieDetails(movieId);
     },
-    
   });
-
 
   return (
     <PageLayout>
-      <div>
-        {isLoading && <div>Loading...</div>}
-        {isError &&  <div>Error</div>}
-        {isSuccess && (
-          <MovieDetailsView  movie={movie} />
-        )}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        {isLoading && <MovieDetailsSkeleton />}
+        {isError && <div>Error</div>}
+        {isSuccess && <MovieDetailsView movie={movie} />}
       </div>
     </PageLayout>
   );

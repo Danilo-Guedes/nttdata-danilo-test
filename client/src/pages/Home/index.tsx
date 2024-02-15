@@ -11,7 +11,7 @@ import CheckList from "../../svgs/checklist.svg";
 
 import styles from "./Home.module.scss";
 import MoviesList from "./components/MoviesList";
-import Skeleton from "react-loading-skeleton";
+import MoviesListSkeleton from "./components/MoviesListSkeleton";
 
 function Home() {
   const [searchText, setSearchText] = useState("");
@@ -46,10 +46,10 @@ function Home() {
       <div className={styles.titleContainer}>
         <h1 className={styles.titleText}>Pesquise e descubra...</h1>
         <span className={styles.subtitleText}>
-          Faça uma pesquisa pelo nome do filme ou serie desejado(a)
-          , posteriromente será exibido uma lista de resultados com uma imagem
-          de capa oficial, data de lançamento e ao clicar no card exibido você
-          será levado a tela de detalhes.
+          Faça uma pesquisa pelo nome do filme ou serie desejado(a),
+          posteriromente será exibido uma lista de resultados com uma imagem de
+          capa oficial, data de lançamento e ao clicar no card exibido você será
+          levado a tela de detalhes.
         </span>
       </div>
       <div className={styles.searchContainer}>
@@ -79,11 +79,7 @@ function Home() {
         </Button>
       </div>
       <div>
-        {isLoading && (
-          <div className={styles.loadingContainer}>
-            {Array(10).fill(<Skeleton height={400} width={600} />)}
-          </div>
-        )}
+        {isLoading && <MoviesListSkeleton />}
         {isError && <p>Error</p>}
         {isSuccess && (
           <>

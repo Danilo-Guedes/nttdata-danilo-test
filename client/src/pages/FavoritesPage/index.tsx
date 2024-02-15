@@ -1,7 +1,7 @@
 import PageLayout from "../../components/PageLayout";
 import useMovieStorage from "../../hooks/favorites";
 import MovieCard from "../Home/components/MovieCard";
-import EmptyInbox from '../../svgs/empty-inbox.svg'
+import EmptyInbox from "../../svgs/empty-inbox.svg";
 
 import styles from "./FavoritePage.module.scss";
 
@@ -17,7 +17,7 @@ function FavoritesPage() {
             <span>Nenhum filme favoritado</span>
           </div>
         ) : (
-          <ul>
+          <ul className={styles.cardsContainer}>
             {movies.map((movie) => (
               <MovieCard key={movie.imdbID} movie={movie} />
             ))}

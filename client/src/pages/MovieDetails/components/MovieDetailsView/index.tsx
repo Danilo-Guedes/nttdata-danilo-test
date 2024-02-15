@@ -68,7 +68,7 @@ const showToast = Modals.useShowToast()
                 showToast({
                     children: "Filme removido dos favoritos",
                     style: { backgroundColor: "red", padding: "1rem", color: "white"},
-                    placement: "MiddleCenter"
+                    placement: "TopEnd"
                 })
               }}
             >
@@ -85,7 +85,7 @@ const showToast = Modals.useShowToast()
                 showToast({
                     children: "Filme adicionado aos favoritos",
                     style: { backgroundColor: "green", padding: "1rem", color: "white"},
-                    placement: "MiddleCenter"
+                    placement: "TopEnd"
                 })
               }}
             >

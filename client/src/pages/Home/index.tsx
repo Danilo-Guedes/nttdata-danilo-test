@@ -46,10 +46,10 @@ function Home() {
       <div className={styles.titleContainer}>
         <h1 className={styles.titleText}>Pesquise e descubra...</h1>
         <span className={styles.subtitleText}>
-          Faça uma pesquisa por texto do filme ou serie desejado(a), posteriromente será
-          exibido uma lista de resultados com uma imagem de capa oficial,
-          data de lançamento e ao clicar no card exibido você será levado a tela
-          de detalhes.
+          Faça uma pesquisa pelo nome do filme ou serie desejado(a)
+          , posteriromente será exibido uma lista de resultados com uma imagem
+          de capa oficial, data de lançamento e ao clicar no card exibido você
+          será levado a tela de detalhes.
         </span>
       </div>
       <div className={styles.searchContainer}>
@@ -92,12 +92,14 @@ function Home() {
                 {data?.Error.includes("Movie not found") ? (
                   <div className={styles.svgContainer}>
                     <img alt="movie not found" src={EmptyInbox} width={400} />
-                    <span >Filme/Serie não encontrado(a)</span>
+                    <span>Filme/Serie não encontrado(a)</span>
                   </div>
                 ) : (
                   <div className={styles.svgContainer}>
                     <img alt="Too many results" src={CheckList} width={400} />
-                    <span style={{marginTop: "2rem"}}>Lista muito grande, refine a pesquisa</span>
+                    <span style={{ marginTop: "2rem" }}>
+                      Lista muito grande, refine a pesquisa
+                    </span>
                   </div>
                 )}
               </>

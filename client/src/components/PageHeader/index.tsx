@@ -10,15 +10,15 @@ function PageHeader() {
       <div className={styles.menuContainer}>
 
       <Link to="/" className={styles.link} >
-        <Icon name="home" className={styles.icon}/><span className={styles.menuText}>Home</span>
+        <Icon name="search" className={styles.icon}/><span className={styles.menuText}>Home</span>
       </Link>
       <Link to="/favoritos" className={styles.link} >
-        <Icon name="favorite" className={styles.icon}/><span className={styles.menuText}>Favoritos</span>
+        <Icon name="heart" className={styles.icon}/><span className={styles.menuText}>Favoritos</span>
       </Link>
       </div>
       <div className={styles.titleContainer}>
 
-      <span className={styles.title}>Teste FullStack NTT DATA</span>
+      <span className={styles.title}>Teste FullStack NTT Data</span>
       </div>
       <div className={styles.socialMedia}>
       <a

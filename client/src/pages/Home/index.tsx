@@ -2,10 +2,12 @@ import { useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import PageLayout from "../../components/PageLayout";
 import { getMoviesApi } from "../../api/movies";
-import {  Input, Button } from "@ui5/webcomponents-react";
+import { Input, Button } from "@ui5/webcomponents-react";
 import "react-loading-skeleton/dist/skeleton.css";
 
 import SearchSvg from "../../svgs/online-search.svg";
+import EmptyInbox from "../../svgs/empty-inbox.svg";
+import CheckList from "../../svgs/checklist.svg";
 
 import styles from "./Home.module.scss";
 import MoviesList from "./components/MoviesList";
@@ -42,12 +44,12 @@ function Home() {
   return (
     <PageLayout>
       <div className={styles.titleContainer}>
-        <h1 className={styles.titleText}>Pesquise Agora!</h1>
+        <h1 className={styles.titleText}>Pesquise e descubra...</h1>
         <span className={styles.subtitleText}>
-          Faça uma pesquisa por texto do filme desejado, posteriromente será
-          exibido uma lista de filmes ou series com uma imagem de capa oficial,
+          Faça uma pesquisa por texto do filme ou serie desejado(a), posteriromente será
+          exibido uma lista de resultados com uma imagem de capa oficial,
           data de lançamento e ao clicar no card exibido você será levado a tela
-          de detalhes do filme/serie.
+          de detalhes.
         </span>
       </div>
       <div className={styles.searchContainer}>
@@ -85,7 +87,21 @@ function Home() {
         {isError && <p>Error</p>}
         {isSuccess && (
           <>
-            {data?.Error && <p>{data?.Error}</p>}
+            {data?.Error && (
+              <>
+                {data?.Error.includes("Movie not found") ? (
+                  <div className={styles.svgContainer}>
+                    <img alt="movie not found" src={EmptyInbox} width={400} />
+                    <span >Filme/Serie não encontrado(a)</span>
+                  </div>
+                ) : (
+                  <div className={styles.svgContainer}>
+                    <img alt="Too many results" src={CheckList} width={400} />
+                    <span style={{marginTop: "2rem"}}>Lista muito grande, refine a pesquisa</span>
+                  </div>
+                )}
+              </>
+            )}
             {data?.Search?.length > 0 && <MoviesList movies={data.Search} />}
           </>
         )}

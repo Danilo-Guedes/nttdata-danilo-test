@@ -27,7 +27,7 @@ export async function getMovieDetails(movieId: string | undefined) {
     console.log("movieId na api", movieId);
     const resp = await apiClient.get(`/movies/${movieId}`);
 
-    if (!resp.data) {
+    if (!resp.data || resp.data.Response === "False") {
       throw new Error("No data found");
     }
 

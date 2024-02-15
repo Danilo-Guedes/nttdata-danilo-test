@@ -1,8 +1,8 @@
+import useMovieStorage from "../../hooks/favorites";
 
 function FavoritesPage() {
-  return (
-    <div>FavoritesPage</div>
-  )
+  const { movies } = useMovieStorage();
+  return <pre>{JSON.stringify(movies, null, 4)}</pre>;
 }
 
-export default FavoritesPage
+export default FavoritesPage;

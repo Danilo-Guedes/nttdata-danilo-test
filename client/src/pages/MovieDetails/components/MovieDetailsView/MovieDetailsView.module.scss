@@ -1,5 +1,4 @@
 .outerContainer {
-  background-color: aquamarine;
   padding: 2rem;
   display: flex;
   @media screen and (max-width: 768px) {
@@ -14,11 +13,9 @@
   }
   @media screen and (min-width: 1440px) {
     padding: 2rem 20rem;
-    
   }
 }
 .leftContainer {
-  background-color: lightcoral;
   display: flex;
   flex-direction: column;
   padding: 3rem;
@@ -32,6 +29,7 @@
     font-size: 2rem;
     margin-bottom: 1rem;
     font-weight: bold;
+    color: #0070f2;
     @media screen and (max-width: 768px) {
       font-size: 1.5rem;
     }
@@ -39,21 +37,32 @@
   .normalText {
     font-size: 1rem;
     margin-bottom: 1rem;
+    color: dimgray;
   }
   .stats {
     color: #0070f2;
   }
+  .favBtnContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    @media screen and (min-width: 768px) {
+      justify-content: flex-start;
+    }
+  }
 }
 .rightContainer {
-  background-color: lightblue;
   display: flex;
   flex-direction: column;
   .poster {
     width: 450px;
     height: 600px;
+    margin-top: 3rem;
     @media screen and (max-width: 768px) {
       width: 100%;
       height: auto;
+      margin: 0;
     }
   }
 }
